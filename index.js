@@ -66,16 +66,40 @@ function encode(text, codeMap){
 }
 
 function decode(encodedText, huffmanTree){
+    let decodedText="";
+    let currentNode = huffmanTree;
+    for (const bit of encodedText) {
+        if (bit === "0") {
+            currentNode = currentNode.left;
+        } else {
+            currentNode = currentNode.right;
+        }
     
+        if (currentNode?.char !== null) {  
+        // ?. is Optional Chaining operator that allows to safely 
+        // access properties of an object that might be null or undefined
+
+            decodedText += currentNode.char;
+            currentNode = huffmanTree;
+        }
+    }
+    return decodedText;
 }
 
+// Example usage
 const text = "this is an example for huffman encoding";
 if (text) {
     const frequencyTable = buildFrequencyTable(text);
     const huffmanTree = buildHuffmanTree(frequencyTable);
     const huffmanCodes = buildHuffmanCodes(huffmanTree);
     const encodedText = encode(text, huffmanCodes);
+    const decodedText = decode(encodedText, huffmanTree);
 
+    console.log(`Original text: ${text}`);
+    console.log(`Encoded text: ${encodedText}`);
+    console.log(`Decoded text: ${decodedText}`);
+} else {
+    console.log("Input text is empty!");
 }
     
     
