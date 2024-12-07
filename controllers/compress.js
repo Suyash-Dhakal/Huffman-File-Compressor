@@ -12,3 +12,5 @@ async function huffmanCompression(req,res){
         res.status(500).json({ message: 'Error compressing text', error: error.message });
     }
 }
+
+module.exports={huffmanCompression};
