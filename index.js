@@ -1,5 +1,4 @@
 const express= require('express');
-const fs = require('fs');
 const PORT=8000;
 const compressRoute=require('./routes/compress');
 const decompressRoute=require('./routes/decompress');
