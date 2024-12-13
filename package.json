@@ -1,4 +1,13 @@
 {
+  "name": "HuffmanCompressor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.2",
